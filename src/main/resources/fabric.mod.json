@@ -4,17 +4,17 @@
   "version": "${version}",
 
   "name": "Arcana ++",
-  "description": "",
+  "description": "This mod adds small tweakers to enhance vanilla experience.",
   "authors": [
     "Arcano"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "homepage": "https://github.com/arcanoren?tab=repositories",
+    "sources": "https://github.com/arcanoren/ArcanaPlusPlus"
   },
 
   "license": "CC0-1.0",
-  "icon": "assets/modid/icon.png",
+  "icon": "assets/arcana2plus/icon.png",
 
   "environment": "*",
   "entrypoints": {

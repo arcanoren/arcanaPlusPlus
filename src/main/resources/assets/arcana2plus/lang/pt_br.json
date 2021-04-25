@@ -1,8 +1,17 @@
 {
   "item.arcana2plus.charcoal_nugget": "Lasca de carvão vegetal",
   "item.arcana2plus.coal_nugget": "Lasca de carvão",
+
+  "item.arcana2plus.guava": "Goiaba",
+  "item.arcana2plus.hazelnut": "Avelã",
+  "item.arcana2plus.mango": "Manga",
+  "item.arcana2plus.peach": "Pêssego",
+
   "item.arcana2plus.flint_shears": "Tesoura de sílex",
   "item.minecraft.shears": "Tesoura de ferro",
+  "item.arcana2plus.golden_shears": "Tesoura dourada",
+  "item.arcana2plus.diamond_shears": "Tesoura de diamante",
+  "item.arcana2plus.netherite_shears": "Tesoura de netherita",
 
   "block.arcana2plus.charcoal_block": "Bloco de carvão vegetal"
 }

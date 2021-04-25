@@ -1,8 +1,17 @@
 {
   "item.arcana2plus.charcoal_nugget": "Charcoal Nugget",
   "item.arcana2plus.coal_nugget": "Coal Nugget",
+
+  "item.arcana2plus.guava": "Guava",
+  "item.arcana2plus.hazelnut": "Hazelnut",
+  "item.arcana2plus.mango": "Mango",
+  "item.arcana2plus.peach": "Peach",
+
   "item.arcana2plus.flint_shears": "Flint Shears",
   "item.minecraft.shears": "Iron Shears",
+  "item.arcana2plus.golden_shears": "Golden Shears",
+  "item.arcana2plus.diamond_shears": "Diamond Shears",
+  "item.arcana2plus.netherite_shears": "Netherite Shears",
 
   "block.arcana2plus.charcoal_block": "Charcoal Block"
 }

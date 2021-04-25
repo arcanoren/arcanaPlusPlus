@@ -1,5 +1,5 @@
 package net.arcano.arcana2plus;
-
+import net.arcano.arcana2plus.loot.APPLoot;
 import net.arcano.arcana2plus.registry.APPRegisterBlocks;
 import net.arcano.arcana2plus.registry.APPRegisterItems;
 import net.arcano.arcana2plus.registry.APPRegisterWorld;
@@ -14,5 +14,8 @@ public class Arcana2Plus implements ModInitializer {
         APPRegisterWorld.registerOreVeins();
         APPRegisterBlocks.registerBlocks();
         APPRegisterItems.registerItems();
+
+        APPLoot.initializeShearsLoot(null, null);
+        APPLoot.allTreesDropFruits();
     }
 }

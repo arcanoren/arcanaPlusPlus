@@ -12,8 +12,17 @@ public class APPRegisterItems {
         Registry.register(Registry.ITEM, new Identifier(Arcana2Plus.MOD_ID, "coal_nugget"), APPItems.COAL_NUGGET);
         Registry.register(Registry.ITEM, new Identifier(Arcana2Plus.MOD_ID, "charcoal_nugget"), APPItems.CHARCOAL_NUGGET);
 
+        //Foods
+        Registry.register(Registry.ITEM, new Identifier(Arcana2Plus.MOD_ID, "guava"), APPItems.GUAVA);
+        Registry.register(Registry.ITEM, new Identifier(Arcana2Plus.MOD_ID, "hazelnut"), APPItems.HAZELNUT);
+        Registry.register(Registry.ITEM, new Identifier(Arcana2Plus.MOD_ID, "mango"), APPItems.MANGO);
+        Registry.register(Registry.ITEM, new Identifier(Arcana2Plus.MOD_ID, "peach"), APPItems.PEACH);
+
         //Tools
         Registry.register(Registry.ITEM, new Identifier(Arcana2Plus.MOD_ID, "flint_shears"), APPItems.FLINT_SHEARS);
+        Registry.register(Registry.ITEM, new Identifier(Arcana2Plus.MOD_ID, "golden_shears"), APPItems.GOLDEN_SHEARS);
+        Registry.register(Registry.ITEM, new Identifier(Arcana2Plus.MOD_ID, "diamond_shears"), APPItems.DIAMOND_SHEARS);
+        Registry.register(Registry.ITEM, new Identifier(Arcana2Plus.MOD_ID, "netherite_shears"), APPItems.NETHERITE_SHEARS);
 
         //block items
         Registry.register(Registry.ITEM, new Identifier(Arcana2Plus.MOD_ID, "charcoal_block"), APPItems.CHARCOAL_BLOCK);
