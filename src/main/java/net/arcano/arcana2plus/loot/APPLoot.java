@@ -120,13 +120,6 @@ public class APPLoot {
         }
     }
 
-    public static void allTreesDropFruits(){
-        leavesFruits(ACACIA_LEAVES_ID, APPItems.GUAVA);
-        leavesFruits(BIRCH_LEAVES_ID, APPItems.PEACH);
-        leavesFruits(JUNGLE_LEAVES_ID, APPItems.MANGO);
-        leavesFruits(SPRUCE_LEAVES_ID, APPItems.HAZELNUT);
-    }
-
     private static void leavesFruits(Identifier treeId, Item fruit){
 
         LootTableLoadingCallback.EVENT.register(((resourceManager, manager, id, supplier, setter) -> {
@@ -136,9 +129,18 @@ public class APPLoot {
                         .withEntry(ItemEntry.builder(fruit).build())
                         .rolls(BinomialLootTableRange.create(1, 0.025f));
 
+                System.out.println(poolBuilder.build().toString());
+
                 supplier.withPool(poolBuilder.build());
             }
         }));
 
+    }
+
+    public static void allTreesDropFruits(){
+        leavesFruits(ACACIA_LEAVES_ID, APPItems.GUAVA);
+        leavesFruits(BIRCH_LEAVES_ID, APPItems.PEACH);
+        leavesFruits(JUNGLE_LEAVES_ID, APPItems.MANGO);
+        leavesFruits(SPRUCE_LEAVES_ID, APPItems.HAZELNUT);
     }
 }

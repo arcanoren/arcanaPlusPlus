@@ -1,7 +1,11 @@
 package net.arcano.arcana2plus.items;
 
+import net.arcano.arcana2plus.Arcana2Plus;
 import net.arcano.arcana2plus.blocks.APPBlocks;
+import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.minecraft.item.*;
+import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
 
 public class APPItems {
     //items
@@ -26,4 +30,30 @@ public class APPItems {
 
     //block items
     public static final Item CHARCOAL_BLOCK = new BlockItem(APPBlocks.CHARCOAL_BLOCK, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+
+    public static void registerItems(){
+        //items
+        Registry.register(Registry.ITEM, new Identifier(Arcana2Plus.MOD_ID, "coal_nugget"), COAL_NUGGET);
+        Registry.register(Registry.ITEM, new Identifier(Arcana2Plus.MOD_ID, "charcoal_nugget"), CHARCOAL_NUGGET);
+
+        //Foods
+        Registry.register(Registry.ITEM, new Identifier(Arcana2Plus.MOD_ID, "guava"), GUAVA);
+        Registry.register(Registry.ITEM, new Identifier(Arcana2Plus.MOD_ID, "hazelnut"), HAZELNUT);
+        Registry.register(Registry.ITEM, new Identifier(Arcana2Plus.MOD_ID, "mango"), MANGO);
+        Registry.register(Registry.ITEM, new Identifier(Arcana2Plus.MOD_ID, "peach"), PEACH);
+
+        //Tools
+        Registry.register(Registry.ITEM, new Identifier(Arcana2Plus.MOD_ID, "flint_shears"), FLINT_SHEARS);
+        Registry.register(Registry.ITEM, new Identifier(Arcana2Plus.MOD_ID, "golden_shears"), GOLDEN_SHEARS);
+        Registry.register(Registry.ITEM, new Identifier(Arcana2Plus.MOD_ID, "diamond_shears"), DIAMOND_SHEARS);
+        Registry.register(Registry.ITEM, new Identifier(Arcana2Plus.MOD_ID, "netherite_shears"), NETHERITE_SHEARS);
+
+        //block items
+        Registry.register(Registry.ITEM, new Identifier(Arcana2Plus.MOD_ID, "charcoal_block"), CHARCOAL_BLOCK);
+
+        //fuels
+        FuelRegistry.INSTANCE.add(APPItems.COAL_NUGGET, 200);
+        FuelRegistry.INSTANCE.add(APPItems.CHARCOAL_NUGGET, 200);
+        FuelRegistry.INSTANCE.add(APPItems.CHARCOAL_BLOCK, 16000);
+    }
 }
