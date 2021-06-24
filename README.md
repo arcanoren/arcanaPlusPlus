@@ -1,6 +1,6 @@
 # ARCANA ++
 
-This mod adds small tweakers to enhance vanilla experience.
+This mod adds small tweaks to enhance vanilla experience.
 
 ## License
 

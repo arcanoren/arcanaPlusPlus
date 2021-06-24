@@ -9,14 +9,11 @@ import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.gen.GenerationStep;
-import net.minecraft.world.gen.YOffset;
 import net.minecraft.world.gen.decorator.Decorator;
 import net.minecraft.world.gen.decorator.RangeDecoratorConfig;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.OreFeatureConfig;
-import net.minecraft.world.gen.heightprovider.ConstantHeightProvider;
-import net.minecraft.world.gen.heightprovider.UniformHeightProvider;
 
 public class APPGenerator {
     private static final ConfiguredFeature<?,?> CAVE_CLAY = Feature.ORE
@@ -24,11 +21,10 @@ public class APPGenerator {
                     OreFeatureConfig.Rules.BASE_STONE_OVERWORLD,
                     Blocks.CLAY.getDefaultState(),
                     16))
-            .decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(UniformHeightProvider
-                    .create(YOffset.fixed(0), YOffset.fixed(79)))))
+            .decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(0, 0, 79)))
             .spreadHorizontally().repeatRandomly(2);
 
-    public static ConfiguredFeature<?,?> clayGenerator(){
+    public static ConfiguredFeature<?,?> claygenerator(){
         return CAVE_CLAY;
     }
 
@@ -37,7 +33,7 @@ public class APPGenerator {
         RegistryKey<ConfiguredFeature<?,?>> clayVeinOverworld = RegistryKey.of(Registry.CONFIGURED_FEATURE_KEY,
                 new Identifier(Arcana2Plus.MOD_ID, "clay_vein_overworld"));
 
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, clayVeinOverworld.getValue(), clayGenerator());
+        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, clayVeinOverworld.getValue(), claygenerator());
         BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, clayVeinOverworld);
     }
 }
