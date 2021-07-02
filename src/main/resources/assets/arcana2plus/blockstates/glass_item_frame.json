@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "map=false": { "model": "block/glass_item_frame" },
+    "map=true":  { "model": "block/glass_item_frame_map" }
+  }
+}

@@ -4,7 +4,7 @@
   "version": "${version}",
 
   "name": "Arcana ++",
-  "description": "This mod adds small tweakers to enhance vanilla experience.",
+  "description": "This mod adds small tweak to enhance vanilla experience.",
   "authors": [
     "Arcano"
   ],
@@ -23,7 +23,7 @@
     ]
   },
   "mixins": [
-    ""
+    "arcana2plus.mixins.json"
   ],
 
   "depends": {
