@@ -67,7 +67,9 @@ public class APPLoot {
         shearables.add(Blocks.COBWEB);
 
         shears.add(APPItems.FLINT_SHEARS);
+        shears.add(APPItems.BONE_SHEARS);
         shears.add(APPItems.GOLDEN_SHEARS);
+        shears.add(APPItems.COPPER_SHEARS);
         shears.add(APPItems.DIAMOND_SHEARS);
         shears.add(APPItems.NETHERITE_SHEARS);
 

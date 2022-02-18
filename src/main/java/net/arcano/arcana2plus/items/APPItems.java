@@ -14,7 +14,9 @@ public class APPItems {
 
     //shears
     public static final Item FLINT_SHEARS = new APPShears(new Item.Settings().maxDamage(16).group(ItemGroup.TOOLS));
+    public static final Item BONE_SHEARS = new APPShears(new Item.Settings().maxDamage(32).group(ItemGroup.TOOLS));
     public static final Item GOLDEN_SHEARS = new APPShears(new Item.Settings().maxDamage(64).group(ItemGroup.TOOLS));
+    public static final Item COPPER_SHEARS = new APPShears(new Item.Settings().maxDamage(128).group(ItemGroup.TOOLS));
     public static final Item DIAMOND_SHEARS = new APPShears(new Item.Settings().maxDamage(1024).group(ItemGroup.TOOLS));
     public static final Item NETHERITE_SHEARS = new APPShears(new Item.Settings().maxDamage(1536).group(ItemGroup.TOOLS));
 
@@ -44,7 +46,9 @@ public class APPItems {
 
         //Tools
         Registry.register(Registry.ITEM, new Identifier(Arcana2Plus.MOD_ID, "flint_shears"), FLINT_SHEARS);
+        Registry.register(Registry.ITEM, new Identifier(Arcana2Plus.MOD_ID, "bone_shears"), BONE_SHEARS);
         Registry.register(Registry.ITEM, new Identifier(Arcana2Plus.MOD_ID, "golden_shears"), GOLDEN_SHEARS);
+        Registry.register(Registry.ITEM, new Identifier(Arcana2Plus.MOD_ID, "copper_shears"), COPPER_SHEARS);
         Registry.register(Registry.ITEM, new Identifier(Arcana2Plus.MOD_ID, "diamond_shears"), DIAMOND_SHEARS);
         Registry.register(Registry.ITEM, new Identifier(Arcana2Plus.MOD_ID, "netherite_shears"), NETHERITE_SHEARS);
 

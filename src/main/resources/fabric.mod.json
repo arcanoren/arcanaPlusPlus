@@ -4,7 +4,7 @@
   "version": "${version}",
 
   "name": "Arcana ++",
-  "description": "This mod adds small tweak to enhance vanilla experience.",
+  "description": "This mod adds small tweaks to enhance vanilla experience.",
   "authors": [
     "Arcano"
   ],
@@ -27,9 +27,9 @@
   ],
 
   "depends": {
-    "fabricloader": ">=0.11.3",
+    "fabricloader": "0.13.2",
     "fabric": "*",
-    "minecraft": "1.17.x"
+    "minecraft": "1.18.x"
   },
   "suggests": {
     "another-mod": "*"

@@ -8,6 +8,7 @@ import net.fabricmc.fabric.api.loot.v1.event.LootTableLoadingCallback;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.condition.LootCondition;
@@ -57,6 +58,7 @@ public class APPLoot {
         shearables.add(Blocks.GRASS);
         shearables.add(Blocks.TALL_GRASS);
         shearables.add(Blocks.FERN);
+        shearables.add(Blocks.LARGE_FERN);
         shearables.add(Blocks.DEAD_BUSH);
         shearables.add(Blocks.SEAGRASS);
         shearables.add(Blocks.TALL_SEAGRASS);
@@ -65,7 +67,9 @@ public class APPLoot {
         shearables.add(Blocks.COBWEB);
 
         shears.add(APPItems.FLINT_SHEARS);
+        shears.add(APPItems.BONE_SHEARS);
         shears.add(APPItems.GOLDEN_SHEARS);
+        shears.add(APPItems.COPPER_SHEARS);
         shears.add(APPItems.DIAMOND_SHEARS);
         shears.add(APPItems.NETHERITE_SHEARS);
 
@@ -73,7 +77,10 @@ public class APPLoot {
     }
 
     private static void lootHelper(ArrayList<Block> blocks, ArrayList<Item> shears){
+
         for(Block block: blocks){
+            String block_name = block.getName().toString();
+
             LootTableLoadingCallback.EVENT.register(((resourceManager, manager, id, supplier, setter) -> {
                 if(block.getLootTableId().equals(id)){
                     FabricLootSupplierBuilder replacement = FabricLootSupplierBuilder.builder();
@@ -96,17 +103,24 @@ public class APPLoot {
                                 ItemPredicate.Builder.create().items(shear)).build();
                         //ItemPredicate.Builder.create().tag(FabricToolTags.SHEARS)).build();
 
-                        if(block.getName().toString().contains("seagrass")){
-                            replacement.withPool(FabricLootPoolBuilder.builder()
-                                    .withEntry(ItemEntry.builder(Items.SEAGRASS).build()).withCondition(condition)
-                                    .rolls(ConstantLootNumberProvider.create(2))
-                                    .build());
-                        }else {
-                            replacement.withPool(FabricLootPoolBuilder.builder()
-                                    .withEntry(ItemEntry.builder(block).build()).withCondition(condition)
-                                    .rolls(ConstantLootNumberProvider.create(1))
-                                    .build());
+                        ItemConvertible item;
+                        int quantity;
+
+                        if(block_name.contains("tall_seagrass")){
+                            item = Items.SEAGRASS;
+                            quantity = 2;
+                        }else if(block_name.contains("large_fern")) {
+                            item = Items.FERN;
+                            quantity = 2;
+                        } else{
+                            item = block;
+                            quantity = 1;
                         }
+
+                        replacement.withPool(FabricLootPoolBuilder.builder()
+                                .withEntry(ItemEntry.builder(item).build()).withCondition(condition)
+                                .rolls(ConstantLootNumberProvider.create(quantity))
+                                .build());
 
                     }
 
@@ -128,8 +142,6 @@ public class APPLoot {
                 FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder()
                         .withEntry(ItemEntry.builder(fruit).build())
                         .rolls(BinomialLootNumberProvider.create(1, 0.025f));
-
-                System.out.println(poolBuilder.build().toString());
 
                 supplier.withPool(poolBuilder.build());
             }

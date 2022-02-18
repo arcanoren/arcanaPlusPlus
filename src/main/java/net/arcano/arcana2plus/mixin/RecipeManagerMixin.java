@@ -18,14 +18,7 @@ public class RecipeManagerMixin {
 
     @Inject(method = "apply", at=@At("HEAD"))
     public void interceptApply(Map<Identifier, JsonElement> map, ResourceManager resourceManager, Profiler profiler, CallbackInfo info){
-        APPRecipeManager.addSlabType();
-
-        for(String slab : APPRecipeManager.SLABS){
-            APPRecipeManager.slabsToBlock(slab);
-
-            map.put(new Identifier("minecraft", slab + "_slab_to_block"), APPRecipeManager.BLOCK);
-
-            System.out.println("Inserido " + slab);
-        }
+        APPRecipeManager.addSlabToBlock(map);
+        APPRecipeManager.addStairsToBlock(map);
     }
 }
