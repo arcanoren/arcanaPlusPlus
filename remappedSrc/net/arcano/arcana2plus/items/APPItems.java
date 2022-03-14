@@ -34,30 +34,45 @@ public class APPItems {
     public static final Item CHARCOAL_BLOCK = new BlockItem(APPBlocks.CHARCOAL_BLOCK, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
 
     public static void registerItems(){
-        //items
-        Registry.register(Registry.ITEM, new Identifier(Arcana2Plus.MOD_ID, "coal_nugget"), COAL_NUGGET);
-        Registry.register(Registry.ITEM, new Identifier(Arcana2Plus.MOD_ID, "charcoal_nugget"), CHARCOAL_NUGGET);
 
         //Foods
-        Registry.register(Registry.ITEM, new Identifier(Arcana2Plus.MOD_ID, "guava"), GUAVA);
-        Registry.register(Registry.ITEM, new Identifier(Arcana2Plus.MOD_ID, "hazelnut"), HAZELNUT);
-        Registry.register(Registry.ITEM, new Identifier(Arcana2Plus.MOD_ID, "mango"), MANGO);
-        Registry.register(Registry.ITEM, new Identifier(Arcana2Plus.MOD_ID, "peach"), PEACH);
+
+        if(Arcana2Plus.config.allTreesDropFruits){
+            Registry.register(Registry.ITEM, new Identifier(Arcana2Plus.MOD_ID, "guava"), GUAVA);
+            Registry.register(Registry.ITEM, new Identifier(Arcana2Plus.MOD_ID, "hazelnut"), HAZELNUT);
+            Registry.register(Registry.ITEM, new Identifier(Arcana2Plus.MOD_ID, "mango"), MANGO);
+            Registry.register(Registry.ITEM, new Identifier(Arcana2Plus.MOD_ID, "peach"), PEACH);
+        }else {
+            System.out.println("All Trees Drop Fruits disabled");
+        }
 
         //Tools
-        Registry.register(Registry.ITEM, new Identifier(Arcana2Plus.MOD_ID, "flint_shears"), FLINT_SHEARS);
-        Registry.register(Registry.ITEM, new Identifier(Arcana2Plus.MOD_ID, "bone_shears"), BONE_SHEARS);
-        Registry.register(Registry.ITEM, new Identifier(Arcana2Plus.MOD_ID, "golden_shears"), GOLDEN_SHEARS);
-        Registry.register(Registry.ITEM, new Identifier(Arcana2Plus.MOD_ID, "copper_shears"), COPPER_SHEARS);
-        Registry.register(Registry.ITEM, new Identifier(Arcana2Plus.MOD_ID, "diamond_shears"), DIAMOND_SHEARS);
-        Registry.register(Registry.ITEM, new Identifier(Arcana2Plus.MOD_ID, "netherite_shears"), NETHERITE_SHEARS);
+        if(Arcana2Plus.config.useMoreShears)
+        {
+            Registry.register(Registry.ITEM, new Identifier(Arcana2Plus.MOD_ID, "flint_shears"), FLINT_SHEARS);
+            Registry.register(Registry.ITEM, new Identifier(Arcana2Plus.MOD_ID, "bone_shears"), BONE_SHEARS);
+            Registry.register(Registry.ITEM, new Identifier(Arcana2Plus.MOD_ID, "golden_shears"), GOLDEN_SHEARS);
+            Registry.register(Registry.ITEM, new Identifier(Arcana2Plus.MOD_ID, "copper_shears"), COPPER_SHEARS);
+            Registry.register(Registry.ITEM, new Identifier(Arcana2Plus.MOD_ID, "diamond_shears"), DIAMOND_SHEARS);
+            Registry.register(Registry.ITEM, new Identifier(Arcana2Plus.MOD_ID, "netherite_shears"), NETHERITE_SHEARS);
+        }else{
+            System.out.println("Shears disabled");
+        }
 
-        //block items
-        Registry.register(Registry.ITEM, new Identifier(Arcana2Plus.MOD_ID, "charcoal_block"), CHARCOAL_BLOCK);
+        if(Arcana2Plus.config.useCoalVariants){
+            //items
+            Registry.register(Registry.ITEM, new Identifier(Arcana2Plus.MOD_ID, "coal_nugget"), COAL_NUGGET);
+            Registry.register(Registry.ITEM, new Identifier(Arcana2Plus.MOD_ID, "charcoal_nugget"), CHARCOAL_NUGGET);
 
-        //fuels
-        FuelRegistry.INSTANCE.add(APPItems.COAL_NUGGET, 200);
-        FuelRegistry.INSTANCE.add(APPItems.CHARCOAL_NUGGET, 200);
-        FuelRegistry.INSTANCE.add(APPItems.CHARCOAL_BLOCK, 16000);
+            //block items
+            Registry.register(Registry.ITEM, new Identifier(Arcana2Plus.MOD_ID, "charcoal_block"), CHARCOAL_BLOCK);
+
+            //fuels
+            FuelRegistry.INSTANCE.add(APPItems.COAL_NUGGET, 200);
+            FuelRegistry.INSTANCE.add(APPItems.CHARCOAL_NUGGET, 200);
+            FuelRegistry.INSTANCE.add(APPItems.CHARCOAL_BLOCK, 16000);
+        }else{
+            System.out.println("Coal Variants disabled");
+        }
     }
 }

@@ -1,8 +1,5 @@
 package net.arcano.arcana2plus.items;
 
-import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
-import net.fabricmc.fabric.impl.tool.attribute.ToolManagerImpl;
-import net.fabricmc.fabric.impl.tool.attribute.handlers.ModdedToolsVanillaBlocksToolHandler;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BeehiveBlockEntity;
 import net.minecraft.entity.ItemEntity;
@@ -19,7 +16,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 
-import java.util.Arrays;
 import java.util.function.Consumer;
 
 public class APPShears extends ShearsItem {

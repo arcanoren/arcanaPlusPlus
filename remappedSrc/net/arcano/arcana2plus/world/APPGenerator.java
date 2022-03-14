@@ -29,11 +29,13 @@ public class APPGenerator {
 
 
     public static void registerOreVeins(){
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE,
-                new Identifier(Arcana2Plus.MOD_ID, "overworld_clay_ore"), OVERWORLD_CLAY_ORE_CONFIGURED_FEATURE);
-        Registry.register(BuiltinRegistries.PLACED_FEATURE,
-                new Identifier(Arcana2Plus.MOD_ID, "overworld_clay_ore"), OVERWORLD_CLAY_ORE_PLACED_FEATURE);
-        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES,
-        RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(Arcana2Plus.MOD_ID, "overworld_clay_ore")));
+        if(Arcana2Plus.config.genUndergroundClay == true){
+            Registry.register(BuiltinRegistries.CONFIGURED_FEATURE,
+                    new Identifier(Arcana2Plus.MOD_ID, "overworld_clay_ore"), OVERWORLD_CLAY_ORE_CONFIGURED_FEATURE);
+            Registry.register(BuiltinRegistries.PLACED_FEATURE,
+                    new Identifier(Arcana2Plus.MOD_ID, "overworld_clay_ore"), OVERWORLD_CLAY_ORE_PLACED_FEATURE);
+            BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES,
+                    RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(Arcana2Plus.MOD_ID, "overworld_clay_ore")));
+        }
     }
 }

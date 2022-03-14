@@ -7,25 +7,27 @@ import net.minecraft.block.Blocks;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.util.registry.RegistryEntry;
 import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.YOffset;
-import net.minecraft.world.gen.decorator.CountPlacementModifier;
-import net.minecraft.world.gen.decorator.HeightRangePlacementModifier;
-import net.minecraft.world.gen.decorator.SquarePlacementModifier;
 import net.minecraft.world.gen.feature.*;
+import net.minecraft.world.gen.placementmodifier.CountPlacementModifier;
+import net.minecraft.world.gen.placementmodifier.HeightRangePlacementModifier;
+import net.minecraft.world.gen.placementmodifier.SquarePlacementModifier;
+
+import java.util.Arrays;
 
 public class APPGenerator {
-    private static final ConfiguredFeature<?,?> OVERWORLD_CLAY_ORE_CONFIGURED_FEATURE = Feature.ORE
-            .configure(new OreFeatureConfig(
-                    OreConfiguredFeatures.BASE_STONE_OVERWORLD,
-                    Blocks.CLAY.getDefaultState(),
-                    16));
 
-    public static PlacedFeature OVERWORLD_CLAY_ORE_PLACED_FEATURE = OVERWORLD_CLAY_ORE_CONFIGURED_FEATURE.withPlacement(
-            CountPlacementModifier.of(2),
-            SquarePlacementModifier.of(),
-            HeightRangePlacementModifier.uniform(YOffset.fixed(45), YOffset.fixed(79)));
+    private static final ConfiguredFeature<?,?> OVERWORLD_CLAY_ORE_CONFIGURED_FEATURE = new ConfiguredFeature(
+            Feature.ORE, new OreFeatureConfig(OreConfiguredFeatures.STONE_ORE_REPLACEABLES, Blocks.CLAY.getDefaultState(), 16));
+
+    public static PlacedFeature OVERWORLD_CLAY_ORE_PLACED_FEATURE = new PlacedFeature(
+            RegistryEntry.of(OVERWORLD_CLAY_ORE_CONFIGURED_FEATURE),
+            Arrays.asList(CountPlacementModifier.of(2),
+                    SquarePlacementModifier.of(),
+                    HeightRangePlacementModifier.uniform(YOffset.fixed(45), YOffset.fixed(79))));
 
 
     public static void registerOreVeins(){
