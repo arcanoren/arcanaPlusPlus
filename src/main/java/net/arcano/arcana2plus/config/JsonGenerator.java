@@ -14,7 +14,8 @@ public class JsonGenerator {
         Gson gson = new Gson();
         Config config = new Config();
 
-        try(Reader reader = new FileReader("..\\run\\config\\arcanaplusplus.json")){
+        //try(Reader reader = new FileReader("..\\run\\config\\arcanaplusplus.json")){
+        try(Reader reader = new FileReader("..\\config\\arcanaplusplus.json")){
             config = gson.fromJson(reader, Config.class);
         }catch (IOException e){
             System.out.println("Arquivo de configuração não encontrado");
@@ -30,7 +31,8 @@ public class JsonGenerator {
         Config config = new Config();
         String json = gson.toJson(config);
 
-        try(FileWriter writer = new FileWriter("..\\run\\config\\arcanaplusplus.json")){
+        //try(FileWriter writer = new FileWriter("..\\run\\config\\arcanaplusplus.json")){
+        try(FileWriter writer = new FileWriter("..\\config\\arcanaplusplus.json")){
             gson.toJson(config, writer);
         }catch (IOException e){
             e.printStackTrace();
